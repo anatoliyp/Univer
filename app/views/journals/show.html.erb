@@ -2,12 +2,14 @@
 
 <p>
   <b>Student:</b>
-  <%= @journal.student_id %>
+  <% # @journal.student_id %>
+  <%= Student.where(:id => @journal.student_id).pluck(:name).first %>
 </p>
 
 <p>
   <b>Lesson:</b>
-  <%= @journal.lesson_id %>
+  <% #@journal.lesson_id %>
+  <%= Lesson.where(:id => @journal.lesson_id).pluck(:name).first  %>
 </p>
 
 <p>

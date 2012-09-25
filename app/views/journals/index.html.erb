@@ -12,8 +12,8 @@
 
 <% @journals.each do |journal| %>
   <tr>
-    <td><%= journal.student_id %></td>
-    <td><%= journal.lesson_id %></td>
+    <td><%= Student.where(:id => journal.student_id).pluck(:name).first %>  </td>
+    <td><%= Lesson.where(:id => journal.lesson_id).pluck(:name).first %></td>
     <td><%= journal.mark %></td>
     <td><%= link_to 'Показать', journal %></td>
     <td><%= link_to 'Редактировать', edit_journal_path(journal) %></td>

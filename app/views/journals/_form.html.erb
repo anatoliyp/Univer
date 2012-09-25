@@ -12,16 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.number_field :student_id  %>
+    <%= f.label "Студент" %><br />
+    <% # f.number_field :student_id  %>
+    <%=  collection_select(:journal, :student_id, Student.all, :id, :name, {:prompt => true}) %>
   </div>
   <div class="field">
-    <%= f.label :lesson_id %><br />
-    <%= f.number_field :lesson_id %>
+    <%= f.label "Предмет" %><br />
+    <% # f.number_field :lesson_id %>
+    <%=  collection_select(:journal, :lesson_id, Lesson.all, :id, :name, {:prompt => true}) %>
   </div>
   <div class="field">
-    <%= f.label :mark %><br />
-    <%= f.number_field :mark %>
+    <%= f.label "Оценка" %><br />
+    <%= f.text_field :mark %>
   </div>
   <div class="actions">
     <%= f.submit %>
