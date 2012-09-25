@@ -1,0 +1,19 @@
+<footer>
+  <nav class="round">
+    <p>
+      <b>Все предметы и студент с лучшей оценкой:</b>    <br>
+        <% Lesson.all.each do |lesson| %>
+          <tr>
+             <td><%= lesson.name  %></td>
+             <%  @journals = Journal.where(:lesson_id => lesson.id).order('mark') %>
+             <% @journals = @journals.pluck(:student_id) %>
+             <% @students = Student.where(:id => @journals[1] ) %>
+             <%= @students = @students.pluck(:name) %>
+            <br>
+            <td><% %></td>
+          </tr>
+      <% end %><br>
+
+         </p>
+  </nav>
+</footer>
